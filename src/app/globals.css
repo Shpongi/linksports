@@ -163,6 +163,26 @@ body {
   }
 }
 
+/* Narrow phones — keep mockup under the viewport so footer never competes */
+@media (max-width: 480px) {
+  .phone {
+    width: min(240px, 72vw);
+    height: min(460px, 58dvh);
+    border-radius: 28px;
+    padding: 8px;
+  }
+
+  .phone-screen {
+    border-radius: 22px;
+  }
+
+  .phone-notch {
+    top: 11px;
+    width: 70px;
+    height: 17px;
+  }
+}
+
 @keyframes slide-in {
   from {
     opacity: 0;

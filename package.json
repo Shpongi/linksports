@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:devices": "node scripts/device-check.mjs",
+    "check:devices:local": "node scripts/device-check.mjs http://127.0.0.1:3000",
+    "predeploy": "npm run build && npm run check:devices:local"
   },
   "engines": {
     "node": ">=20"
@@ -23,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "playwright": "^1.62.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
