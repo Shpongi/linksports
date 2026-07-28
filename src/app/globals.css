@@ -31,6 +31,7 @@
 
 html,
 body {
+  height: 100%;
   min-height: 100%;
 }
 
@@ -39,36 +40,41 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-dm), system-ui, sans-serif;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 
 .deck {
   position: relative;
-  min-height: 100dvh;
+  height: 100dvh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background:
     radial-gradient(ellipse 80% 60% at 10% 0%, rgba(61, 214, 198, 0.12), transparent 55%),
     radial-gradient(ellipse 70% 50% at 90% 100%, rgba(184, 242, 85, 0.1), transparent 50%),
     linear-gradient(160deg, #0b1220 0%, #121c2f 45%, #0a1520 100%);
 }
 
-@media (min-width: 768px) {
-  html,
-  body {
-    height: 100%;
-  }
+.deck-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
-  body {
-    overflow: hidden;
-  }
-
-  .deck {
-    height: 100dvh;
-    overflow: hidden;
-  }
+.deck-footer {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 30;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 18, 32, 0) 0%,
+    rgba(11, 18, 32, 0.92) 28%,
+    rgba(11, 18, 32, 1) 100%
+  );
+  backdrop-filter: blur(8px);
 }
 
 .deck::before {
@@ -116,6 +122,45 @@ body {
   background: #111;
   border-radius: 14px;
   z-index: 20;
+}
+
+/* Shorter laptop viewports — shrink phone mockups so footer stays visible */
+@media (max-height: 860px) {
+  .phone {
+    width: 230px;
+    height: 476px;
+    border-radius: 30px;
+    padding: 8px;
+  }
+
+  .phone-screen {
+    border-radius: 24px;
+  }
+
+  .phone-notch {
+    top: 12px;
+    width: 72px;
+    height: 18px;
+  }
+}
+
+@media (max-height: 740px) {
+  .phone {
+    width: 200px;
+    height: 414px;
+    border-radius: 26px;
+    padding: 7px;
+  }
+
+  .phone-screen {
+    border-radius: 20px;
+  }
+
+  .phone-notch {
+    top: 10px;
+    width: 64px;
+    height: 16px;
+  }
 }
 
 @keyframes slide-in {

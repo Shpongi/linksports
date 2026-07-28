@@ -306,8 +306,8 @@ export function Presentation() {
   }, [go, total]);
 
   return (
-    <div className="deck flex min-h-dvh flex-col">
-      <header className="relative z-10 flex items-center justify-between px-6 py-4 md:px-10">
+    <div className="deck">
+      <header className="relative z-10 flex shrink-0 items-center justify-between px-6 py-3 md:px-10 md:py-4">
         <div className="flex items-center gap-3">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#3f1cb0] font-[family-name:var(--font-sora)] text-xs font-extrabold text-white">
             SM
@@ -326,12 +326,12 @@ export function Presentation() {
         </p>
       </header>
 
-      <main className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 items-start gap-8 px-6 pb-28 pt-2 md:grid-cols-2 md:items-center md:gap-14 md:px-10 md:pb-24">
+      <main className="deck-main relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-8 px-6 py-4 md:grid-cols-2 md:items-center md:gap-10 md:px-10 md:py-6">
         <div key={slide.id} className="anim-in order-2 md:order-1">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#c4b5fd]">
             {slide.kicker}
           </p>
-          <h1 className="mt-3 max-w-lg font-[family-name:var(--font-sora)] text-3xl font-extrabold leading-[1.15] tracking-tight text-white md:text-[2.5rem]">
+          <h1 className="mt-3 max-w-lg font-[family-name:var(--font-sora)] text-3xl font-extrabold leading-[1.15] tracking-tight text-white md:text-[2.35rem] lg:text-[2.5rem]">
             {slide.title}
           </h1>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[var(--muted)] md:text-base">
@@ -360,7 +360,7 @@ export function Presentation() {
         </div>
       </main>
 
-      <footer className="relative z-10 mt-auto flex items-center justify-between gap-4 px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 md:px-10 md:pb-6">
+      <footer className="deck-footer flex items-center justify-between gap-4 px-6 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 md:px-10 md:pb-5">
         <button
           type="button"
           onClick={() => go(-1)}
@@ -395,10 +395,6 @@ export function Presentation() {
           Next →
         </button>
       </footer>
-
-      <p className="pointer-events-none absolute bottom-20 left-1/2 z-0 -translate-x-1/2 text-[10px] text-white/25 md:bottom-8 md:left-auto md:right-10 md:translate-x-0">
-        ← → or Space to navigate
-      </p>
     </div>
   );
 }
