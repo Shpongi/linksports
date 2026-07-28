@@ -125,16 +125,17 @@ const SLIDES: Slide[] = [
     id: "step-2",
     kicker: "Flow · 2 of 5",
     title: "Choose Sports MultiCard",
-    body: "Two ways to present MultiCard in the support choice — a brand logo grid, or a custom-designed gift card built for LinkSports.",
+    body: "These are ideas only — not locked designs. Rough concepts for how the MultiCard choice could look inside LinkSports.",
     bullets: [
-      "Option A — logo grid of included sports brands",
-      "Option B — custom Sports MultiCard artwork",
+      "Idea 1 — logo grid of included sports brands",
+      "Idea 2 — custom Sports MultiCard artwork",
+      "Final look is up to LinkSports",
     ],
     visual: (
       <div className="anim-in flex items-end gap-3 md:gap-4">
         <div className="flex flex-col items-center gap-2">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
-            Option A · Logos
+            Idea 1 · Logos
           </p>
           <div className="origin-bottom scale-[0.78] md:scale-[0.85]">
             <PhoneFrame>
@@ -148,7 +149,7 @@ const SLIDES: Slide[] = [
         </div>
         <div className="flex flex-col items-center gap-2">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
-            Option B · Custom card
+            Idea 2 · Custom card
           </p>
           <div className="origin-bottom scale-[0.78] md:scale-[0.85]">
             <PhoneFrame>
