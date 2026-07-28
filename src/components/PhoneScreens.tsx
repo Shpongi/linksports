@@ -573,53 +573,16 @@ export function GiftCardVisual() {
   );
 }
 
-function SportsMultiCardImage({ amount = "$100" }: { amount?: string }) {
+function SportsMultiCardImage() {
   return (
-    <div className="relative aspect-[1.6/1] w-full overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-md">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f7f5fc] via-white to-[#ebe6f8]" />
-      <div className="absolute -right-4 top-2 flex h-28 w-28 rotate-12 flex-wrap content-start gap-1 opacity-90">
-        {["#3f1cb0", "#e11d48", "#f97316", "#eab308", "#22c55e", "#3b82f6"].map(
-          (c) => (
-            <span
-              key={c}
-              className="h-10 w-10 rounded-md opacity-80"
-              style={{ background: c }}
-            />
-          ),
-        )}
-      </div>
-      <div className="relative flex h-full flex-col justify-between p-3.5">
-        <div>
-          <p
-            className="font-[family-name:var(--font-sora)] text-[15px] font-extrabold tracking-wide"
-            style={{ color: PURPLE }}
-          >
-            SPORTS MULTICARD
-          </p>
-          <p className="mt-1 text-[11px] font-semibold text-neutral-500">
-            {amount}
-          </p>
-        </div>
-        <div className="flex items-end justify-between gap-2">
-          <div className="flex flex-wrap gap-1">
-            {BRANDS.slice(0, 6).map((b) => (
-              <div
-                key={b.name}
-                className="flex h-6 w-6 items-center justify-center rounded bg-white shadow-sm"
-              >
-                <Image
-                  src={b.src}
-                  alt={b.name}
-                  width={16}
-                  height={16}
-                  className="object-contain"
-                />
-              </div>
-            ))}
-          </div>
-          <p className="text-[8px] text-neutral-400">Powered by LinkSports</p>
-        </div>
-      </div>
+    <div className="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-md">
+      <Image
+        src="/multicards/sports-multicard.png"
+        alt="Sports MultiCard"
+        width={374}
+        height={231}
+        className="h-auto w-full object-cover"
+      />
     </div>
   );
 }
@@ -685,7 +648,7 @@ export function BrandSelectionScreen({
               </span>
             </>
           )}
-          <SportsMultiCardImage amount="$100" />
+          <SportsMultiCardImage />
         </div>
 
         <h3 className="mt-3 text-[17px] font-extrabold text-[#1e3a5f]">
