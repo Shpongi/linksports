@@ -326,7 +326,7 @@ export function Presentation() {
         </p>
       </header>
 
-      <main className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 items-center gap-10 px-6 pb-24 pt-2 md:grid-cols-2 md:gap-14 md:px-10">
+      <main className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 items-start gap-8 px-6 pb-28 pt-2 md:grid-cols-2 md:items-center md:gap-14 md:px-10 md:pb-24">
         <div key={slide.id} className="anim-in order-2 md:order-1">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#c4b5fd]">
             {slide.kicker}
@@ -360,7 +360,7 @@ export function Presentation() {
         </div>
       </main>
 
-      <footer className="relative z-10 flex items-center justify-between gap-4 px-6 pb-6 md:px-10">
+      <footer className="relative z-10 mt-auto flex items-center justify-between gap-4 px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-2 md:px-10 md:pb-6">
         <button
           type="button"
           onClick={() => go(-1)}
