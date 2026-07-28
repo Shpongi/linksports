@@ -32,7 +32,7 @@ const SLIDES: Slide[] = [
       <div className="anim-in relative">
         <div className="absolute -inset-8 rounded-full bg-[radial-gradient(circle,rgba(63,28,176,0.35),transparent_65%)]" />
         <PhoneFrame>
-          <div className="flex h-full flex-col justify-between bg-gradient-to-br from-[#4a22c4] via-[#3f1cb0] to-[#1f0d6b] p-5 text-white">
+          <div className="flex h-full flex-col justify-between bg-gradient-to-br from-[#4a22c4] via-[#3f1cb0] to-[#1f0d6b] px-5 pb-5 pt-12 text-white">
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
                 Sports MultiCard
@@ -98,11 +98,11 @@ const SLIDES: Slide[] = [
     id: "integration",
     kicker: "Integration",
     title: "LinkSports owns the UI — MultiCard via API",
-    body: "All screens stay in LinkSports. After a successful payment, LinkSports calls the Sports MultiCard API to issue and deliver the gift card.",
+    body: "All screens stay in LinkSports. After a successful payment, LinkSports calls the GlobeTopper API to issue and deliver the gift card.",
     bullets: [
       "LinkSports builds Cash vs MultiCard choice",
       "Supporter pays inside LinkSports checkout",
-      "On success → API issues the MultiCard",
+      "On success → GlobeTopper API issues the MultiCard",
     ],
     visual: (
       <PhoneFrame>
@@ -140,7 +140,7 @@ const SLIDES: Slide[] = [
     bullets: [
       "Card number, expiry, and CVC",
       "Billing country",
-      "On success → API issues the MultiCard",
+      "On success (defined by LinkSports) → API issues the MultiCard",
     ],
     visual: (
       <PhoneFrame>
@@ -163,15 +163,15 @@ const SLIDES: Slide[] = [
     id: "brand-select",
     kicker: "Flow · 5 of 5",
     title: "Athlete opens the brand selection site",
-    body: "Davi lands on the Sports Multicard redeem page — LinkSports branded — and picks which sports retailer to spend at.",
+    body: "The redeem experience can be branded for LinkSports — fonts, look, and the gift card artwork itself.",
     bullets: [
-      "LinkSports logo in the header",
-      "$100 Sports Multicard",
-      "Select the brand to redeem",
+      "Redeem site styled with LinkSports fonts & branding",
+      "Gift card design is fully customizable",
+      "Athlete selects which sports brand to redeem at",
     ],
     visual: (
       <PhoneFrame>
-        <BrandSelectionScreen />
+        <BrandSelectionScreen highlightCard />
       </PhoneFrame>
     ),
   },
@@ -179,11 +179,12 @@ const SLIDES: Slide[] = [
     id: "how-it-works",
     kicker: "How it works",
     title: "Payment first, then API issuance",
-    body: "LinkSports keeps full control of UX and checkout. Sports MultiCard fulfills the gift card after a successful charge.",
+    body: "After a successful payment, the API returns the MultiCard redemption site URL to LinkSports. LinkSports then delivers that redemption link to the end user.",
     bullets: [
       "1. Supporter selects MultiCard + amount",
       "2. LinkSports completes payment",
-      "3. API call issues & delivers the card",
+      "3. API response returns the MultiCard redemption site URL",
+      "4. LinkSports delivers the redemption to the end user",
     ],
     visual: (
       <div className="anim-in w-full max-w-sm space-y-3">
@@ -199,9 +200,14 @@ const SLIDES: Slide[] = [
             tone: "bg-white/10 border-white/15 text-white",
           },
           {
-            label: "Sports MultiCard API",
-            desc: "Issue gift card → deliver to athlete",
+            label: "API response",
+            desc: "Returns MultiCard redemption site URL to LinkSports",
             tone: "bg-[#ebe6f8] text-[#3f1cb0] border-[#ebe6f8]",
+          },
+          {
+            label: "LinkSports delivery",
+            desc: "Delivers the redemption link to the end user",
+            tone: "bg-white/10 border-white/15 text-white",
           },
         ].map((row) => (
           <div
@@ -220,7 +226,7 @@ const SLIDES: Slide[] = [
   {
     id: "thanks",
     kicker: "Thank you",
-    title: "Sports MultiCard × LinkSports",
+    title: "GlobeTopper × LinkSports",
     body: "Your transaction is pending approval. Once approved, we'll send the Sports MultiCard to Davi.",
     bullets: [
       "Full UI owned by LinkSports",

@@ -592,7 +592,11 @@ function SportsMultiCardImage({ amount = "$100" }: { amount?: string }) {
 }
 
 /** Athlete brand-selection / redeem site */
-export function BrandSelectionScreen() {
+export function BrandSelectionScreen({
+  highlightCard = false,
+}: {
+  highlightCard?: boolean;
+}) {
   return (
     <div className="flex h-full flex-col bg-white">
       <StatusBar />
@@ -623,7 +627,31 @@ export function BrandSelectionScreen() {
           You received a gift card from a LinkSports supporter
         </p>
 
-        <div className="mx-auto mt-5 w-full max-w-[240px]">
+        <div
+          className={`relative mx-auto mt-5 w-full max-w-[240px] ${
+            highlightCard ? "z-10" : ""
+          }`}
+        >
+          {highlightCard && (
+            <>
+              <div
+                className="pointer-events-none absolute -inset-3 rounded-2xl border-[3px] border-dashed"
+                style={{ borderColor: PURPLE }}
+                aria-hidden
+              />
+              <div
+                className="anim-pulse pointer-events-none absolute -inset-3 rounded-2xl"
+                style={{ boxShadow: `0 0 0 3px ${PURPLE}33` }}
+                aria-hidden
+              />
+              <span
+                className="absolute -top-3 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[9px] font-bold text-white shadow"
+                style={{ background: PURPLE }}
+              >
+                Customizable gift card
+              </span>
+            </>
+          )}
           <SportsMultiCardImage amount="$100" />
         </div>
 
