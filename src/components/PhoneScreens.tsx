@@ -36,9 +36,11 @@ export function PhoneFrame({
   className?: string;
 }) {
   return (
-    <div className={`phone ${className}`}>
-      <div className="phone-notch" />
-      <div className="phone-screen">{children}</div>
+    <div className="phone-shell">
+      <div className={`phone ${className}`}>
+        <div className="phone-notch" />
+        <div className="phone-screen">{children}</div>
+      </div>
     </div>
   );
 }

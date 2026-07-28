@@ -132,35 +132,31 @@ const SLIDES: Slide[] = [
       "Final look is up to LinkSports",
     ],
     visual: (
-      <div className="anim-in flex items-end gap-3 md:gap-4">
+      <div className="anim-in flex flex-wrap items-end justify-center gap-3 md:gap-4">
         <div className="flex flex-col items-center gap-2">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
             Idea 1 · Logos
           </p>
-          <div className="origin-bottom scale-[0.78] md:scale-[0.85]">
-            <PhoneFrame>
-              <DonationScreen
-                mode="multicard"
-                highlightMulti
-                multiCardVariant="logos"
-              />
-            </PhoneFrame>
-          </div>
+          <PhoneFrame>
+            <DonationScreen
+              mode="multicard"
+              highlightMulti
+              multiCardVariant="logos"
+            />
+          </PhoneFrame>
         </div>
         <div className="flex flex-col items-center gap-2">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
             Idea 2 · Custom card
           </p>
-          <div className="origin-bottom scale-[0.78] md:scale-[0.85]">
-            <PhoneFrame>
-              <DonationScreen
-                mode="multicard"
-                highlightMulti
-                multiCardVariant="giftcard"
-                multiCardImage="/multicards/sports-multicard.png"
-              />
-            </PhoneFrame>
-          </div>
+          <PhoneFrame>
+            <DonationScreen
+              mode="multicard"
+              highlightMulti
+              multiCardVariant="giftcard"
+              multiCardImage="/multicards/sports-multicard.png"
+            />
+          </PhoneFrame>
         </div>
       </div>
     ),
