@@ -89,6 +89,35 @@ function BrandLogos({
   );
 }
 
+function MultiCardTilePreview({
+  variant = "logos",
+  cardSrc = "/multicards/sports-multicard.png",
+}: {
+  variant?: "logos" | "giftcard";
+  cardSrc?: string;
+}) {
+  if (variant === "giftcard") {
+    return (
+      <div className="mt-1.5 overflow-hidden rounded-md border border-[#3f1cb0]/20 bg-white shadow-sm">
+        <Image
+          src={cardSrc}
+          alt="Sports MultiCard example"
+          width={374}
+          height={231}
+          className="h-auto w-full object-cover"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <p className="mb-1.5 text-[9px] text-neutral-500">Spend at sports brands</p>
+      <BrandLogos count={6} size={14} />
+    </>
+  );
+}
+
 export function PlayerProfileScreen({ highlight }: { highlight?: boolean }) {
   return (
     <div className="flex h-full flex-col bg-[#f4f2f8]">
@@ -187,10 +216,14 @@ export function DonationScreen({
   mode = "cash",
   highlightMulti = false,
   showMethodChoice = true,
+  multiCardVariant = "logos",
+  multiCardImage = "/multicards/sports-multicard.png",
 }: {
   mode?: "cash" | "multicard";
   highlightMulti?: boolean;
   showMethodChoice?: boolean;
+  multiCardVariant?: "logos" | "giftcard";
+  multiCardImage?: string;
 }) {
   const currency = mode === "multicard" ? "USD" : "BRL";
   const currencies =
@@ -264,10 +297,10 @@ export function DonationScreen({
                 <p className="text-[11px] font-bold" style={{ color: PURPLE }}>
                   Sports MultiCard
                 </p>
-                <p className="mb-1.5 text-[9px] text-neutral-500">
-                  Spend at sports brands
-                </p>
-                <BrandLogos count={6} size={14} />
+                <MultiCardTilePreview
+                  variant={multiCardVariant}
+                  cardSrc={multiCardImage}
+                />
               </button>
             </div>
           </>

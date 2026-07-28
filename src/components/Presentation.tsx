@@ -125,11 +125,43 @@ const SLIDES: Slide[] = [
     id: "step-2",
     kicker: "Flow · 2 of 5",
     title: "Choose Sports MultiCard",
-    body: "On Make a Donation, the supporter picks MultiCard over cash and sets an amount in USD or CAD.",
+    body: "Two ways to present MultiCard in the support choice — a brand logo grid, or a custom-designed gift card built for LinkSports.",
+    bullets: [
+      "Option A — logo grid of included sports brands",
+      "Option B — custom Sports MultiCard artwork",
+    ],
     visual: (
-      <PhoneFrame>
-        <DonationScreen mode="multicard" highlightMulti />
-      </PhoneFrame>
+      <div className="anim-in flex items-end gap-3 md:gap-4">
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
+            Option A · Logos
+          </p>
+          <div className="origin-bottom scale-[0.78] md:scale-[0.85]">
+            <PhoneFrame>
+              <DonationScreen
+                mode="multicard"
+                highlightMulti
+                multiCardVariant="logos"
+              />
+            </PhoneFrame>
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">
+            Option B · Custom card
+          </p>
+          <div className="origin-bottom scale-[0.78] md:scale-[0.85]">
+            <PhoneFrame>
+              <DonationScreen
+                mode="multicard"
+                highlightMulti
+                multiCardVariant="giftcard"
+                multiCardImage="/multicards/sports-multicard.png"
+              />
+            </PhoneFrame>
+          </div>
+        </div>
+      </div>
     ),
   },
   {
